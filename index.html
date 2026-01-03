@@ -6,29 +6,64 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-GYJ40Q6P1G');
     </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Calculadora IVA e IRPF Autónomos España 2025 - Factura Rápida</title>
-    <meta name="description" content="Calculadora gratuita de facturas para autónomos en España. Calcula el IVA y el IRPF (retención) automáticamente. Herramienta para freelancers y pymes.">
-    <meta name="keywords" content="calculadora iva irpf, calcular factura autonomo, retencion irpf 2025, calculadora freelance españa, cuanto poner en la factura">
+    <title>Calculadora Factura Autónomo 2025 (IVA e IRPF) - PDF Gratis</title>
+    <meta name="description" content="Calculadora precisa de facturas para autónomos. Calcula IVA, IRPF y líquido a percibir. Genera tu factura en PDF gratis y al instante.">
+    <meta name="keywords" content="calculadora iva irpf, calcular factura autonomo, retencion irpf 2025, modelo factura excel, cuanto cobrar neto">
     <meta name="robots" content="index, follow">
     
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "¿Qué IRPF debo poner en mi factura?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La norma general es el 15%. Si eres nuevo autónomo, puedes aplicar el 7% durante el año de inicio y los dos siguientes."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿El IRPF se suma o se resta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El IRPF siempre se resta de la base imponible. Es un dinero que tu cliente ingresa a Hacienda en tu nombre (anticipo de tus impuestos)."
+        }
+      }]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #e6edf3;
+            --text-muted: #8b949e;
+            --accent: #2ea043;
+            --accent-hover: #238636;
+            --border: #30363d;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* Fondo oscuro profesional */
-            color: #e6edf3;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
+
         .main-wrapper {
             display: flex;
             flex-direction: column;
@@ -37,46 +72,30 @@
             padding: 20px;
         }
         
-        /* HEADER */
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-            margin-top: 2rem;
-        }
-        h1 {
-            color: #2ea043; /* Verde Financiero */
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
-        }
-        .subtitle { color: #8b949e; font-size: 1rem; }
+        header { text-align: center; margin: 2rem 0; }
+        h1 { color: var(--accent); font-size: 2.2rem; margin-bottom: 0.5rem; letter-spacing: -1px; }
+        .subtitle { color: var(--text-muted); font-size: 1rem; }
 
-        /* CALCULATOR CARD */
+        /* CARD PRINCIPAL */
         .calculator-card {
-            background-color: #161b22;
+            background-color: var(--card-bg);
             padding: 2.5rem;
             border-radius: 16px;
             width: 100%;
             max-width: 500px;
-            border: 1px solid #30363d;
+            border: 1px solid var(--border);
             box-shadow: 0 10px 40px rgba(0,0,0,0.4);
         }
 
         /* INPUTS */
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #c9d1d9;
-            font-size: 0.9rem;
-        }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #c9d1d9; font-size: 0.9rem; }
         .input-group { margin-bottom: 1.5rem; }
         
         input[type="number"], select {
             width: 100%;
             padding: 15px;
             border-radius: 8px;
-            border: 1px solid #30363d;
+            border: 1px solid var(--border);
             background: #0d1117;
             color: white;
             font-size: 18px;
@@ -86,7 +105,7 @@
         }
         input[type="number"]:focus, select:focus {
             outline: none;
-            border-color: #2ea043;
+            border-color: var(--accent);
             box-shadow: 0 0 0 3px rgba(46, 160, 67, 0.2);
         }
 
@@ -96,56 +115,74 @@
             border-radius: 12px;
             padding: 1.5rem;
             margin-top: 1rem;
-            border: 1px solid #30363d;
+            border: 1px solid var(--border);
         }
         .result-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
+            align-items: baseline;
+            margin-bottom: 5px;
             font-size: 1rem;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed #30363d;
         }
-        .result-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-        
-        .result-label { color: #8b949e; }
-        .result-value { font-weight: 600; }
-        
-        .total-row {
+        .result-row.total-row {
             margin-top: 15px;
             padding-top: 15px;
-            border-top: 2px solid #30363d;
+            border-top: 2px solid var(--border);
             font-size: 1.3rem;
-            color: #2ea043;
+            color: var(--accent);
             font-weight: 800;
         }
+        
+        .result-label { color: var(--text-muted); }
+        .result-value { font-weight: 600; }
+        
+        /* Tooltips didácticos */
+        .tax-explain {
+            display: block;
+            font-size: 0.75rem;
+            color: #6e7681;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
 
-        /* BOTONES */
-        .btn-copy {
-            width: 100%;
-            padding: 12px;
+        /* BOTONES DE ACCIÓN */
+        .actions-container {
+            display: flex;
+            gap: 10px;
             margin-top: 20px;
-            background-color: #238636;
-            color: white;
+        }
+        .btn {
+            flex: 1;
+            padding: 12px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 14px;
             transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
-        .btn-copy:hover { background-color: #2ea043; }
+        .btn-primary { background-color: #238636; color: white; }
+        .btn-primary:hover { background-color: #2ea043; }
         
-        /* SEO CONTENT */
-        .seo-content {
-            max-width: 700px;
-            margin-top: 4rem;
+        .btn-secondary { background-color: #30363d; color: #e6edf3; }
+        .btn-secondary:hover { background-color: #3b434b; }
+
+        /* LEGAL WARNING */
+        .legal-warning {
+            margin-top: 15px;
+            font-size: 0.75rem;
             color: #8b949e;
+            background: rgba(255,255,0,0.05);
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
         }
-        .seo-content h2 { color: #e6edf3; margin-top: 2rem; }
-        .seo-content p { margin-bottom: 1rem; }
-        
-        /* AD SPACE */
+
+        /* ADS */
         .ad-space {
             width: 100%;
             height: 100px;
@@ -159,13 +196,41 @@
             border-radius: 8px;
             font-size: 0.8rem;
         }
+        
+        .ad-mini {
+            height: 60px;
+            margin: 15px 0 0 0;
+            font-size: 0.7rem;
+            background: #0d1117;
+        }
 
-        footer {
-            margin-top: 3rem;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #484f58;
-            padding-bottom: 2rem;
+        /* CONTENIDO SEO */
+        .seo-content { max-width: 700px; margin-top: 3rem; color: var(--text-muted); }
+        .seo-content h2 { color: var(--text-main); margin-top: 2rem; }
+        
+        footer { margin-top: 3rem; text-align: center; font-size: 0.8rem; color: #484f58; padding-bottom: 2rem; }
+
+        /* ESTILOS PARA IMPRESIÓN (PDF LIMPIO) */
+        @media print {
+            body { background-color: white; color: black; }
+            .calculator-card { box-shadow: none; border: 2px solid #000; padding: 20px; max-width: 100%; }
+            .input-group, .actions-container, .ad-space, .seo-content, footer, .subtitle { display: none; }
+            header { margin: 0; text-align: left; }
+            h1 { color: black; font-size: 1.5rem; }
+            .results-box { border: none; padding: 0; color: black; }
+            .result-value { color: black !important; }
+            .tax-explain { display: none; } /* Ocultar explicaciones en la factura impresa */
+            .main-wrapper { padding: 0; display: block; }
+            
+            /* Simular cabecera de factura */
+            header::after {
+                content: "Cálculo orientativo generado en CalculadoraFreelance";
+                display: block;
+                font-size: 0.8rem;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #000;
+                padding-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -174,32 +239,32 @@
     <div class="main-wrapper">
         <header>
             <h1>Calculadora Factura Autónomo</h1>
-            <p class="subtitle">Calcula el IVA e IRPF de tus facturas en segundos</p>
+            <p class="subtitle">Calcula IVA, IRPF y líquido en segundos</p>
         </header>
 
         <div class="calculator-card">
             <div class="input-group">
                 <label for="base">Base Imponible (€)</label>
-                <input type="number" id="base" placeholder="Ej: 1000" oninput="calcular()">
+                <input type="number" id="base" placeholder="Ej: 1000" step="0.01" min="0" oninput="calcular()" aria-label="Base imponible en euros">
             </div>
 
             <div class="input-group" style="display: flex; gap: 10px;">
                 <div style="flex: 1;">
                     <label for="iva">IVA (%)</label>
-                    <select id="iva" onchange="calcular()">
+                    <select id="iva" onchange="calcular()" aria-label="Seleccionar porcentaje de IVA">
                         <option value="0.21" selected>21% (General)</option>
                         <option value="0.10">10% (Reducido)</option>
-                        <option value="0.04">4% (Superreducido)</option>
+                        <option value="0.04">4% (Super)</option>
                         <option value="0">0% (Exento)</option>
                     </select>
                 </div>
                 <div style="flex: 1;">
                     <label for="irpf">IRPF (%)</label>
-                    <select id="irpf" onchange="calcular()">
+                    <select id="irpf" onchange="calcular()" aria-label="Seleccionar porcentaje de IRPF">
                         <option value="0.15" selected>15% (General)</option>
-                        <option value="0.07">7% (Nuevos Autónomos)</option>
-                        <option value="0.01">1% (Módulos/Otros)</option>
-                        <option value="0">0% (Sin Retención)</option>
+                        <option value="0.07">7% (Nuevos)</option>
+                        <option value="0.01">1% (Módulos)</option>
+                        <option value="0">0% (Sin IRPF)</option>
                     </select>
                 </div>
             </div>
@@ -207,88 +272,120 @@
             <div class="results-box">
                 <div class="result-row">
                     <span class="result-label">Base Imponible:</span>
-                    <span class="result-value" id="res-base">0.00 €</span>
+                    <span class="result-value" id="res-base">0,00 €</span>
                 </div>
+
                 <div class="result-row">
                     <span class="result-label">+ IVA:</span>
-                    <span class="result-value" style="color:#ff7b72" id="res-iva">0.00 €</span>
+                    <span class="result-value" style="color:#ff7b72" id="res-iva">0,00 €</span>
                 </div>
+                <span class="tax-explain">Dinero que cobras pero debes devolver a Hacienda trimestralmente.</span>
+
                 <div class="result-row">
                     <span class="result-label">- IRPF (Retención):</span>
-                    <span class="result-value" style="color:#79c0ff" id="res-irpf">0.00 €</span>
+                    <span class="result-value" style="color:#79c0ff" id="res-irpf">0,00 €</span>
                 </div>
+                <span class="tax-explain">Adelanto de impuestos que tu cliente paga por ti.</span>
+
                 <div class="result-row total-row">
                     <span class="result-label">TOTAL FACTURA:</span>
-                    <span class="result-value" id="res-total">0.00 €</span>
+                    <span class="result-value" id="res-total">0,00 €</span>
                 </div>
-                <div class="result-row" style="margin-top:10px; font-size: 0.9rem; color:#8b949e; border:none;">
-                    <span class="result-label">Líquido a recibir:</span>
-                    <span class="result-value" id="res-liquido">0.00 €</span>
+                <span class="tax-explain">El importe final que debes poner en la factura.</span>
+                
+                <div class="ad-space ad-mini">Publicidad</div>
+
+                <div class="result-row" style="margin-top:15px; border-top: 1px dashed #30363d; padding-top:10px;">
+                    <span class="result-label">Líquido real (Banco):</span>
+                    <span class="result-value" style="color:#2ea043" id="res-liquido">0,00 €</span>
                 </div>
+                <span class="tax-explain">Lo que realmente te queda (Base - IRPF).</span>
+            </div>
+            
+            <div class="legal-warning">
+                ⚠️ <strong>Nota:</strong> Cálculo informativo. Revisa tus obligaciones fiscales con un gestor colegiado.
             </div>
 
-            <button class="btn-copy" onclick="copiarTotal()">Copiar Total al Portapapeles</button>
+            <div class="actions-container">
+                <button class="btn btn-secondary" onclick="copiarDesglose()">
+                    📋 Copiar Texto
+                </button>
+                <button class="btn btn-primary" onclick="window.print()">
+                    📄 Descargar PDF
+                </button>
+            </div>
         </div>
 
-        <div class="ad-space">Publicidad (AdSense)</div>
+        <div class="ad-space">Espacio Publicitario (Google AdSense)</div>
 
         <div class="seo-content">
-            <h2>¿Cómo calcular una factura de autónomo con IVA e IRPF?</h2>
-            <p>Si eres freelance o autónomo en España, calcular correctamente tus facturas es vital para evitar problemas con Hacienda. Nuestra <strong>calculadora de IVA e IRPF</strong> hace el trabajo por ti automáticamente.</p>
+            <h2>¿Cómo calcular una factura de autónomo correctamente?</h2>
+            <p>Muchos freelancers cometen el error de gastar el total de la factura. Recuerda: el IVA no es tuyo. Nuestra calculadora te muestra el <strong>líquido real</strong> para que planifiques mejor tu economía.</p>
             
-            <h3>¿Qué IRPF debo aplicar en 2025?</h3>
-            <p>La regla general es aplicar un <strong>15% de IRPF</strong> en tus facturas. Sin embargo, si eres un <strong>nuevo autónomo</strong>, puedes aplicar el <strong>7%</strong> durante el año en que te das de alta y los dos siguientes.</p>
-
-            <h3>Tipos de IVA en España</h3>
+            <h3>Guía rápida de impuestos 2025</h3>
             <ul>
-                <li><strong>21% (General):</strong> Para la mayoría de servicios y productos.</li>
-                <li><strong>10% (Reducido):</strong> Hostelería, transporte, reformas, etc.</li>
-                <li><strong>4% (Superreducido):</strong> Alimentos básicos, libros, medicinas.</li>
+                <li><strong>IRPF Reducido (7%):</strong> Solo si te has dado de alta este año o los dos anteriores y no has sido autónomo antes.</li>
+                <li><strong>IRPF General (15%):</strong> La tarifa estándar para profesionales.</li>
             </ul>
         </div>
 
         <footer>
-            <p>&copy; 2025 CalculadoraFreelance. Herramienta informativa sin validez legal oficial.</p>
-            <p><a href="#" style="color:#8b949e">Privacidad</a> | <a href="#" style="color:#8b949e">Contacto</a></p>
+            <p>&copy; 2025 CalculadoraFreelance. <a href="#" style="color:#8b949e">Aviso Legal</a></p>
         </footer>
     </div>
 
     <script>
+        // Cargar datos guardados al iniciar
+        window.onload = function() {
+            if(localStorage.getItem('savedBase')) {
+                document.getElementById('base').value = localStorage.getItem('savedBase');
+                document.getElementById('iva').value = localStorage.getItem('savedIva');
+                document.getElementById('irpf').value = localStorage.getItem('savedIrpf');
+                calcular();
+            }
+        };
+
         function calcular() {
-            let base = parseFloat(document.getElementById('base').value) || 0;
+            // 1. Obtener valores
+            let baseInput = document.getElementById('base').value;
+            let base = parseFloat(baseInput) || 0;
             let ivaPorcentaje = parseFloat(document.getElementById('iva').value);
             let irpfPorcentaje = parseFloat(document.getElementById('irpf').value);
 
+            // 2. Guardar en LocalStorage (Auto-save)
+            localStorage.setItem('savedBase', baseInput);
+            localStorage.setItem('savedIva', ivaPorcentaje);
+            localStorage.setItem('savedIrpf', irpfPorcentaje);
+
+            // 3. Cálculos
             let ivaCantidad = base * ivaPorcentaje;
             let irpfCantidad = base * irpfPorcentaje;
-            
             let totalFactura = base + ivaCantidad - irpfCantidad;
             
+            // CORRECCIÓN IMPORTANTE: El líquido es Base - IRPF (o Total - IVA)
+            // Este es el dinero que "te pertenece" antes de impuestos anuales
             let liquido = base - irpfCantidad; 
 
+            // 4. Formatear
             const formatoEuro = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
 
             document.getElementById('res-base').innerText = formatoEuro.format(base);
             document.getElementById('res-iva').innerText = formatoEuro.format(ivaCantidad);
             document.getElementById('res-irpf').innerText = formatoEuro.format(irpfCantidad);
             document.getElementById('res-total').innerText = formatoEuro.format(totalFactura);
-            document.getElementById('res-liquido').innerText = formatoEuro.format(totalFactura); 
+            document.getElementById('res-liquido').innerText = formatoEuro.format(liquido); 
         }
 
-        function copiarTotal() {
-            let totalText = document.getElementById('res-total').innerText;
-            // Para copiar solo el número (opcionalmente podrías querer el símbolo)
-            let numeroLimpio = totalText; 
+        function copiarDesglose() {
+            let base = document.getElementById('res-base').innerText;
+            let iva = document.getElementById('res-iva').innerText;
+            let irpf = document.getElementById('res-irpf').innerText;
+            let total = document.getElementById('res-total').innerText;
             
-            navigator.clipboard.writeText(numeroLimpio).then(() => {
-                const btn = document.querySelector('.btn-copy');
-                const textoOriginal = btn.innerText;
-                btn.innerText = "¡Copiado!";
-                btn.style.backgroundColor = "#2ea043";
-                setTimeout(() => {
-                    btn.innerText = textoOriginal;
-                    btn.style.backgroundColor = "#238636";
-                }, 2000);
+            let texto = `🧮 Cálculo Factura:\n\nBase: ${base}\n+ IVA: ${iva}\n- IRPF: ${irpf}\n\n💰 TOTAL A COBRAR: ${total}`;
+            
+            navigator.clipboard.writeText(texto).then(() => {
+                alert("¡Desglose copiado! Listo para pegar en email o WhatsApp.");
             });
         }
     </script>
