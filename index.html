@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHW2NBZHPD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HHW2NBZHPD');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Calculadora IVA e IRPF Autónomos España 2025 - Factura Rápida</title>
+    <meta name="description" content="Calculadora gratuita de facturas para autónomos en España. Calcula el IVA y el IRPF (retención) automáticamente. Herramienta para freelancers y pymes.">
+    <meta name="keywords" content="calculadora iva irpf, calcular factura autonomo, retencion irpf 2025, calculadora freelance españa, cuanto poner en la factura">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Fondo oscuro profesional */
+            color: #e6edf3;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        /* HEADER */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+        h1 {
+            color: #2ea043; /* Verde Financiero */
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+        .subtitle { color: #8b949e; font-size: 1rem; }
+
+        /* CALCULATOR CARD */
+        .calculator-card {
+            background-color: #161b22;
+            padding: 2.5rem;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #30363d;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        /* INPUTS */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #c9d1d9;
+            font-size: 0.9rem;
+        }
+        .input-group { margin-bottom: 1.5rem; }
+        
+        input[type="number"], select {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            background: #0d1117;
+            color: white;
+            font-size: 18px;
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+            transition: 0.2s;
+        }
+        input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #2ea043;
+            box-shadow: 0 0 0 3px rgba(46, 160, 67, 0.2);
+        }
+
+        /* RESULTADOS */
+        .results-box {
+            background: #21262d;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            border: 1px solid #30363d;
+        }
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #30363d;
+        }
+        .result-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+        
+        .result-label { color: #8b949e; }
+        .result-value { font-weight: 600; }
+        
+        .total-row {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #30363d;
+            font-size: 1.3rem;
+            color: #2ea043;
+            font-weight: 800;
+        }
+
+        /* BOTONES */
+        .btn-copy {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #238636;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+        .btn-copy:hover { background-color: #2ea043; }
+        
+        /* SEO CONTENT */
+        .seo-content {
+            max-width: 700px;
+            margin-top: 4rem;
+            color: #8b949e;
+        }
+        .seo-content h2 { color: #e6edf3; margin-top: 2rem; }
+        .seo-content p { margin-bottom: 1rem; }
+        
+        /* AD SPACE */
+        .ad-space {
+            width: 100%;
+            height: 100px;
+            background: #161b22;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444;
+            border: 1px dashed #444;
+            border-radius: 8px;
+            font-size: 0.8rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #484f58;
+            padding-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <header>
+            <h1>Calculadora Factura Autónomo</h1>
+            <p class="subtitle">Calcula el IVA e IRPF de tus facturas en segundos</p>
+        </header>
+
+        <div class="calculator-card">
+            <div class="input-group">
+                <label for="base">Base Imponible (€)</label>
+                <input type="number" id="base" placeholder="Ej: 1000" oninput="calcular()">
+            </div>
+
+            <div class="input-group" style="display: flex; gap: 10px;">
+                <div style="flex: 1;">
+                    <label for="iva">IVA (%)</label>
+                    <select id="iva" onchange="calcular()">
+                        <option value="0.21" selected>21% (General)</option>
+                        <option value="0.10">10% (Reducido)</option>
+                        <option value="0.04">4% (Superreducido)</option>
+                        <option value="0">0% (Exento)</option>
+                    </select>
+                </div>
+                <div style="flex: 1;">
+                    <label for="irpf">IRPF (%)</label>
+                    <select id="irpf" onchange="calcular()">
+                        <option value="0.15" selected>15% (General)</option>
+                        <option value="0.07">7% (Nuevos Autónomos)</option>
+                        <option value="0.01">1% (Módulos/Otros)</option>
+                        <option value="0">0% (Sin Retención)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="results-box">
+                <div class="result-row">
+                    <span class="result-label">Base Imponible:</span>
+                    <span class="result-value" id="res-base">0.00 €</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">+ IVA:</span>
+                    <span class="result-value" style="color:#ff7b72" id="res-iva">0.00 €</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">- IRPF (Retención):</span>
+                    <span class="result-value" style="color:#79c0ff" id="res-irpf">0.00 €</span>
+                </div>
+                <div class="result-row total-row">
+                    <span class="result-label">TOTAL FACTURA:</span>
+                    <span class="result-value" id="res-total">0.00 €</span>
+                </div>
+                <div class="result-row" style="margin-top:10px; font-size: 0.9rem; color:#8b949e; border:none;">
+                    <span class="result-label">Líquido a recibir:</span>
+                    <span class="result-value" id="res-liquido">0.00 €</span>
+                </div>
+            </div>
+
+            <button class="btn-copy" onclick="copiarTotal()">Copiar Total al Portapapeles</button>
+        </div>
+
+        <div class="ad-space">Publicidad (AdSense)</div>
+
+        <div class="seo-content">
+            <h2>¿Cómo calcular una factura de autónomo con IVA e IRPF?</h2>
+            <p>Si eres freelance o autónomo en España, calcular correctamente tus facturas es vital para evitar problemas con Hacienda. Nuestra <strong>calculadora de IVA e IRPF</strong> hace el trabajo por ti automáticamente.</p>
+            
+            <h3>¿Qué IRPF debo aplicar en 2025?</h3>
+            <p>La regla general es aplicar un <strong>15% de IRPF</strong> en tus facturas. Sin embargo, si eres un <strong>nuevo autónomo</strong>, puedes aplicar el <strong>7%</strong> durante el año en que te das de alta y los dos siguientes.</p>
+
+            <h3>Tipos de IVA en España</h3>
+            <ul>
+                <li><strong>21% (General):</strong> Para la mayoría de servicios y productos.</li>
+                <li><strong>10% (Reducido):</strong> Hostelería, transporte, reformas, etc.</li>
+                <li><strong>4% (Superreducido):</strong> Alimentos básicos, libros, medicinas.</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 CalculadoraFreelance. Herramienta informativa sin validez legal oficial.</p>
+            <p><a href="#" style="color:#8b949e">Privacidad</a> | <a href="#" style="color:#8b949e">Contacto</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function calcular() {
+            // Obtener valores
+            let base = parseFloat(document.getElementById('base').value) || 0;
+            let ivaPorcentaje = parseFloat(document.getElementById('iva').value);
+            let irpfPorcentaje = parseFloat(document.getElementById('irpf').value);
+
+            // Cálculos
+            let ivaCantidad = base * ivaPorcentaje;
+            let irpfCantidad = base * irpfPorcentaje;
+            
+            // El Total de la factura es Base + IVA - IRPF
+            let totalFactura = base + ivaCantidad - irpfCantidad;
+            
+            // El líquido (lo que realmente te queda tras pagar el IVA a hacienda trimestralmente)
+            // Esto es solo informativo, técnicamente recibes el Total Factura en el banco.
+            let liquido = base - irpfCantidad; 
+
+            // Formatear a Euro
+            const formatoEuro = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+
+            // Mostrar en pantalla
+            document.getElementById('res-base').innerText = formatoEuro.format(base);
+            document.getElementById('res-iva').innerText = formatoEuro.format(ivaCantidad);
+            document.getElementById('res-irpf').innerText = formatoEuro.format(irpfCantidad);
+            document.getElementById('res-total').innerText = formatoEuro.format(totalFactura);
+            
+            // Explicación: Muchos autónomos confunden el total factura con lo que ganan.
+            // En realidad, el IVA lo cobran pero lo deben devolver.
+            document.getElementById('res-liquido').innerText = formatoEuro.format(totalFactura); 
+        }
+
+        function copiarTotal() {
+            let totalText = document.getElementById('res-total').innerText;
+            // Quitamos el símbolo € y puntos para que sea fácil de pegar en un excel o banco
+            let numeroLimpio = totalText; 
+            
+            navigator.clipboard.writeText(numeroLimpio).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                const textoOriginal = btn.innerText;
+                btn.innerText = "¡Copiado!";
+                btn.style.backgroundColor = "#2ea043";
+                setTimeout(() => {
+                    btn.innerText = textoOriginal;
+                    btn.style.backgroundColor = "#238636";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
