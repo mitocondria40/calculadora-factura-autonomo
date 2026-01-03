@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHW2NBZHPD"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYJ40Q6P1G"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-HHW2NBZHPD');
-    </script>
 
+      gtag('config', 'G-GYJ40Q6P1G');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -255,39 +255,29 @@
 
     <script>
         function calcular() {
-            // Obtener valores
             let base = parseFloat(document.getElementById('base').value) || 0;
             let ivaPorcentaje = parseFloat(document.getElementById('iva').value);
             let irpfPorcentaje = parseFloat(document.getElementById('irpf').value);
 
-            // Cálculos
             let ivaCantidad = base * ivaPorcentaje;
             let irpfCantidad = base * irpfPorcentaje;
             
-            // El Total de la factura es Base + IVA - IRPF
             let totalFactura = base + ivaCantidad - irpfCantidad;
             
-            // El líquido (lo que realmente te queda tras pagar el IVA a hacienda trimestralmente)
-            // Esto es solo informativo, técnicamente recibes el Total Factura en el banco.
             let liquido = base - irpfCantidad; 
 
-            // Formatear a Euro
             const formatoEuro = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
 
-            // Mostrar en pantalla
             document.getElementById('res-base').innerText = formatoEuro.format(base);
             document.getElementById('res-iva').innerText = formatoEuro.format(ivaCantidad);
             document.getElementById('res-irpf').innerText = formatoEuro.format(irpfCantidad);
             document.getElementById('res-total').innerText = formatoEuro.format(totalFactura);
-            
-            // Explicación: Muchos autónomos confunden el total factura con lo que ganan.
-            // En realidad, el IVA lo cobran pero lo deben devolver.
             document.getElementById('res-liquido').innerText = formatoEuro.format(totalFactura); 
         }
 
         function copiarTotal() {
             let totalText = document.getElementById('res-total').innerText;
-            // Quitamos el símbolo € y puntos para que sea fácil de pegar en un excel o banco
+            // Para copiar solo el número (opcionalmente podrías querer el símbolo)
             let numeroLimpio = totalText; 
             
             navigator.clipboard.writeText(numeroLimpio).then(() => {
